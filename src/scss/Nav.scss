@@ -1,0 +1,104 @@
+@import "vars.scss";
+
+.nav-wrapper {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  background: transparent;
+  transition: 0.5s;
+  .logo {
+    position: absolute;
+    width: 110px;
+    height: 76px;
+    left: 95px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url("../assets/images/logo.png") 50% 50% / contain no-repeat;
+    color: transparent;
+    &:hover {
+      color: transparent;
+    }
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  max-width: 480px;
+  text-align: left;
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  @media (max-width: 1024px) {
+    max-width: 350px;
+  }
+}
+
+nav a {
+  color: #fff;
+  border: 0;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 500;
+  letter-spacing: 1.75385px;
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  transition: 0.3s;
+  z-index: 1;
+  &:hover {
+    color: $yellow;
+  }
+}
+
+.nav {
+  height: 100px;
+  background: transparent;
+  position: relative;
+}
+
+a.nav-link {
+  margin-left: 30px;
+}
+
+a.nav-link.active {
+  z-index: 5;
+  color: #fff;
+}
+
+.nav-link.active::before {
+  display: block;
+  width: 100px;
+  height: 1px;
+  content: "";
+  background: $yellow;
+
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+  animation: appear 0.3s ease-in;
+  z-index: -1;
+}
+
+@keyframes appear {
+  0% {
+    width: 0px;
+  }
+  70% {
+    width: 0px;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

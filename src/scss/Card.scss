@@ -1,0 +1,72 @@
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 90vw;
+  margin: 0 auto;
+  position: relative;
+  // @media (max-width: 1440px) {
+  //   max-width: 40vw;
+  // }
+}
+.card {
+  height: auto;
+  margin: 0 20px;
+  width: 700px;
+  height: auto;
+
+  @media (max-width: 1440px) {
+    width: 460px;
+    height: auto;
+  }
+  &.active {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+  }
+  .cardImg {
+    width: 100%;
+    // max-width: 500px;
+    height: 50%;
+    // width: 100%;
+    // height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transform-origin: center;
+    // transition: 0.5s;
+    &.active {
+      display: none;
+    }
+  }
+}
+
+.cardHidden {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-54.3%, -28.8%);
+  height: auto;
+  margin: 0 20px;
+  width: 460px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transform-origin: center;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: -1;
+  &.active {
+    z-index: 1;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 120vw;
+    height: 120vh;
+    transform-origin: center;
+    display: block;
+    border-radius: 0;
+  }
+}
