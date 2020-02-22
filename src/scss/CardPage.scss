@@ -1,7 +1,16 @@
 @import "vars.scss";
 
+.containerCardPage {
+  padding: 0 10%;
+  margin: 0 auto;
+  background: #fff;
+  @media (max-width: 1440px) {
+    padding: 0;
+  }
+}
+
 .containerCard {
-  width: 100vw;
+  width: 100%;
   height: auto;
   overflow-y: auto;
   position: relative;
@@ -22,8 +31,9 @@
   .headingContainer {
     position: absolute;
     top: 50%;
-    left: 75%;
+    left: 70%;
     transform: translateY(-50%);
+    max-width: 500px;
     @media (max-width: 1440px) {
       left: 75%;
       @media (max-width: 768px) {
@@ -99,11 +109,15 @@
       padding: 0 50px;
       &:nth-child(1) {
         width: 20%;
-        @media (max-width: 768px) {
-          width: 100%;
-          padding: 0 100px;
-          @media (max-width: 425px) {
-            padding: 0 40px;
+        @media (max-width: 1440px) {
+          width: 25%;
+          padding: 0 0 0 100px;
+          @media (max-width: 768px) {
+            width: 100%;
+            padding: 0 100px;
+            @media (max-width: 425px) {
+              padding: 0 40px;
+            }
           }
         }
         .cardUl {
@@ -131,29 +145,37 @@
         width: 80%;
         min-height: 200vh;
         padding: 0;
-        @media (max-width: 768px) {
-          width: 100%;
+        @media (max-width: 1440px) {
+          width: 75%;
           min-height: auto;
+          @media (max-width: 768px) {
+            width: 100%;
+            min-height: auto;
+          }
         }
 
         .addToCart {
           display: block;
           background: $black;
           width: 31.25%;
-          height: 200px;
+          height: 150px;
           float: right;
           color: #fff;
           font-size: 20px;
           text-transform: uppercase;
           border: 1px solid $black;
+          transition: 0.3s;
           &:hover {
             color: $black;
             background: transparent;
             cursor: pointer;
           }
-          @media (max-width: 768px) {
-            float: none;
-            width: 100%;
+          @media (max-width: 1440px) {
+            width: 33.25%;
+            @media (max-width: 768px) {
+              float: none;
+              width: 100%;
+            }
           }
         }
 

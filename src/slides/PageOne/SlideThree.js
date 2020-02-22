@@ -10,7 +10,7 @@ const SlideThree = () => {
       <div className="containerSlide">
         <Fade delay={700}>
           <div className="container flexCenter">
-            <h2 className="whiteText">Ботиночки Черные</h2>
+            <h2 className="whiteText">Ботиночки Коричневые</h2>
             <Card img={BotsBroun} to="/card2" delay="500" />
           </div>
         </Fade>

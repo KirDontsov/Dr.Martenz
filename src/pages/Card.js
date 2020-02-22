@@ -1,196 +1,110 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Fade from "react-reveal/Fade";
 
 import BotsBlack from "../assets/images/BotsBlack.jpg";
 import BotsBroun from "../assets/images/BotsBroun.jpg";
+import Description from "../components/Description";
 
 import "../scss/CardPage.scss";
 
-const Card = props => {
-  if (props.location.pathname === "/card2") {
+class Card extends Component {
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
+  render() {
+    const { width } = this.state;
+    const isMobile = width <= 768;
+
+    if (this.props.location.pathname === "/card2") {
+      return (
+        <Fragment>
+          <Helmet>
+            <title>Ботиночки Коричневые Dr.Martens</title>
+            <meta
+              name="description"
+              content="Ботиночки Коричневые Dr.Martens"
+            />
+          </Helmet>
+          <Fade delay={700}>
+            <div className="navCover"></div>
+          </Fade>
+          <div className="containerCard">
+            <div className="containerImg">
+              <img src={BotsBroun} alt="Ботиночки" className="heroCard" />
+            </div>
+            <Fade delay={700}>
+              <div className="headingContainer">
+                <h2 className="dark">Ботиночки Коричневые</h2>
+                <p>Ликвидация склада Dr.Martens в Екатеринбурге</p>
+              </div>
+            </Fade>
+          </div>
+          <div className="containerCardPage">
+            {isMobile ? (
+              <Fragment>
+                <Description title="Ботиночки Коричневые женские Dr. Martens" />
+              </Fragment>
+            ) : (
+              <Fade>
+                <Description title="Ботиночки Коричневые женские Dr. Martens" />
+              </Fade>
+            )}
+          </div>
+        </Fragment>
+      );
+    }
     return (
       <Fragment>
         <Helmet>
-          <title>Доставка</title>
-          <meta name="description" content="Доставка Dr.Martens" />
+          <title>Ботиночки Черные Dr.Martens</title>
+          <meta name="description" content="Ботиночки Черные Dr.Martens" />
         </Helmet>
         <Fade delay={700}>
           <div className="navCover"></div>
         </Fade>
         <div className="containerCard">
           <div className="containerImg">
-            <img src={BotsBroun} alt="Ботиночки" className="heroCard" />
+            <img src={BotsBlack} alt="Ботиночки" className="heroCard" />
           </div>
-          <Fade delay={700}>
+          <Fade bottom delay={700}>
             <div className="headingContainer">
-              <h2 className="dark">Ботиночки Коричневые</h2>
-              <p>Lorem ipsum dolor sit</p>
+              <h2 className="dark">Ботиночки Черные</h2>
+              <p>Ликвидация склада Dr.Martens в Екатеринбурге</p>
             </div>
           </Fade>
         </div>
-        <Fade>
-          <div className="contentCard">
-            <div className="cardDesc">
-              <h2 className="cardTitle">Ботиночки женские Dr. Martens</h2>
-              <p>
-                Модели обуви Dr. Martens одновременно и неряшливы и изящны,
-                сексуальны и модны, их можно характеризовать одним словом
-                "уникальные". Они сочетаются с военной формой, с брюками, и
-                юбками.
-              </p>
-              <p>
-                Гениальные решения способны приходить к людям, в самые
-                неожиданные моменты их жизни. Оценив, за годы Второй Мировой
-                войны, надежность и удобство высоких армейских ботинок, Клаус
-                Мертенс, задумал создать их гражданский аналог, облегчив вес
-                обуви, сменив жесткую неудобную подошву и привнеся в свое
-                творение, немного дизайнерской мысли.
-              </p>
-              <p>
-                Обувь Dr. Martens первый раз появилась в далёком в 1901 году в
-                Англии, сегодня от производителя мартинсов мы можем увидеть не
-                только массивные ботинки с толстой подошвой и железными носками,
-                но и ассортимент увеличился расширился круг любителей этой не
-                стандартной обувной фирмы.
-              </p>
-              <p>
-                Модели обуви Dr. Martens одновременно и неряшливы и изящны,
-                сексуальны и модны, их можно характеризовать одним словом
-                "уникальные". Они сочетаются с военной формой, с брюками, и
-                юбками.
-              </p>
-              <p>
-                Обувь Dr. Martens пользуется спросом как у девушек таи и у
-                мужчин , качество Мартинсов всегда на высоте.
-              </p>
-              <p>
-                Сегодня обувь торговой марки Dr. Martens стала не только
-                необходимым атрибутом многих неформальных молодежных движений.
-                Продукцией бренда с удовольствием пользуются все те, кто ценит
-                защищенность своих ног, удобство ношения и оригинальный стиль.
-                Качество, которое подкрепляют вполне выполнимые для разных слоев
-                населения цены, сделали обувь бренда Dr. Martens одной из самых
-                популярных во всем мире.
-              </p>
-              <p>
-                Подошва имеет свой уникальный дизайн – в середине подошвы
-                находиться воздух который в свою очередь смягчает ходьбу и как
-                можно максимально защищают вашу ногу от внешних повреждений.
-              </p>
-            </div>
-            <div className="colWrapper">
-              <div className="col">
-                <ul className="cardUl">
-                  <li>Импортировано из UK</li>
-                  <li>Натуральный нубук</li>
-                  <li>Есть в наличии</li>
-                  <li>Обмен и возврат без проблем!</li>
-                  <li>Доставка по всей России</li>
-                  <li>Предзаказ можно оформить за 30% стоимости</li>
-                </ul>
-              </div>
-              <div className="col">
-                <button className="addToCart">Добавить в Корзину</button>
-                <img src={BotsBroun} alt="Ботиночки" className="heroCard" />
-              </div>
-            </div>
-          </div>
-        </Fade>
+        <div className="containerCardPage">
+          {isMobile ? (
+            <Fragment>
+              <Description title="Ботиночки Черные женские Dr. Martens" />
+            </Fragment>
+          ) : (
+            <Fade>
+              <Description title="Ботиночки Черные женские Dr. Martens" />
+            </Fade>
+          )}
+        </div>
       </Fragment>
     );
   }
-  return (
-    <Fragment>
-      <Helmet>
-        <title>Доставка</title>
-        <meta name="description" content="Доставка Dr.Martens" />
-      </Helmet>
-      <Fade delay={700}>
-        <div className="navCover"></div>
-      </Fade>
-      <div className="containerCard">
-        <div className="containerImg">
-          <img src={BotsBlack} alt="Ботиночки" className="heroCard" />
-        </div>
-        <Fade bottom delay={700}>
-          <div className="headingContainer">
-            <h2 className="dark">Ботиночки Черные</h2>
-            <p>Lorem ipsum dolor sit</p>
-          </div>
-        </Fade>
-      </div>
-      <Fade>
-        <div className="contentCard">
-          <div className="cardDesc">
-            <h2 className="cardTitle">Ботиночки женские Dr. Martens</h2>
-            <p>
-              Модели обуви Dr. Martens одновременно и неряшливы и изящны,
-              сексуальны и модны, их можно характеризовать одним словом
-              "уникальные". Они сочетаются с военной формой, с брюками, и
-              юбками.
-            </p>
-            <p>
-              Гениальные решения способны приходить к людям, в самые неожиданные
-              моменты их жизни. Оценив, за годы Второй Мировой войны, надежность
-              и удобство высоких армейских ботинок, Клаус Мертенс, задумал
-              создать их гражданский аналог, облегчив вес обуви, сменив жесткую
-              неудобную подошву и привнеся в свое творение, немного дизайнерской
-              мысли.
-            </p>
-            <p>
-              Обувь Dr. Martens первый раз появилась в далёком в 1901 году в
-              Англии, сегодня от производителя мартинсов мы можем увидеть не
-              только массивные ботинки с толстой подошвой и железными носками,
-              но и ассортимент увеличился расширился круг любителей этой не
-              стандартной обувной фирмы.
-            </p>
-            <p>
-              Модели обуви Dr. Martens одновременно и неряшливы и изящны,
-              сексуальны и модны, их можно характеризовать одним словом
-              "уникальные". Они сочетаются с военной формой, с брюками, и
-              юбками.
-            </p>
-            <p>
-              Обувь Dr. Martens пользуется спросом как у девушек таи и у мужчин
-              , качество Мартинсов всегда на высоте.
-            </p>
-            <p>
-              Сегодня обувь торговой марки Dr. Martens стала не только
-              необходимым атрибутом многих неформальных молодежных движений.
-              Продукцией бренда с удовольствием пользуются все те, кто ценит
-              защищенность своих ног, удобство ношения и оригинальный стиль.
-              Качество, которое подкрепляют вполне выполнимые для разных слоев
-              населения цены, сделали обувь бренда Dr. Martens одной из самых
-              популярных во всем мире.
-            </p>
-            <p>
-              Подошва имеет свой уникальный дизайн – в середине подошвы
-              находиться воздух который в свою очередь смягчает ходьбу и как
-              можно максимально защищают вашу ногу от внешних повреждений.
-            </p>
-          </div>
-          <div className="colWrapper">
-            <div className="col">
-              <ul className="cardUl">
-                <li>Импортировано из UK</li>
-                <li>Натуральный нубук</li>
-                <li>Есть в наличии</li>
-                <li>Обмен и возврат без проблем!</li>
-                <li>Доставка по всей России</li>
-                <li>Предзаказ можно оформить за 30% стоимости</li>
-              </ul>
-            </div>
-            <div className="col">
-              <button className="addToCart">Добавить в Корзину</button>
-              <img src={BotsBlack} alt="Ботиночки" className="heroCard" />
-            </div>
-          </div>
-        </div>
-      </Fade>
-    </Fragment>
-  );
-};
+}
 
 export default Card;

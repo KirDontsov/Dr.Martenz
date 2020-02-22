@@ -96,6 +96,9 @@ body::-webkit-scrollbar {
   height: 100vh;
   margin: 0 auto;
   position: relative;
+  @media (max-width: 425px) {
+    width: 200vw;
+  }
 }
 
 .flexCenter {

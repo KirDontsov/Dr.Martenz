@@ -39,7 +39,11 @@ class ScrollingHorizontally extends Component {
               config={{ stiffness: 160, damping: 110 }}
               animValues={this.state.deltaX}
             >
-              <SlideOne style={child} title={title} subtitle={subtitle} />
+              <SlideOne
+                title={title}
+                subtitle={subtitle}
+                className="slideScreen"
+              />
             </HorizontalScroll>
           </div>
         </Draggable>
@@ -54,9 +58,13 @@ class ScrollingHorizontally extends Component {
             config={{ stiffness: 160, damping: 110 }}
             animValues={this.state.deltaX}
           >
-            <SlideOne style={child} title={title} subtitle={subtitle} />
-            <SlideTwo style={child} />
-            <SlideThree style={child} />
+            <SlideOne
+              title={title}
+              subtitle={subtitle}
+              className="slideScreen"
+            />
+            <SlideTwo className="slideScreen" />
+            <SlideThree className="slideScreen" />
           </HorizontalScroll>
         </div>
       </Draggable>
