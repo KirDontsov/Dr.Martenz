@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Fade from "react-reveal/Fade";
 
@@ -60,11 +59,17 @@ class Card extends Component {
           <div className="containerCardPage">
             {isMobile ? (
               <Fragment>
-                <Description title="Ботиночки Коричневые женские Dr. Martens" />
+                <Description
+                  title="Ботиночки Коричневые женские Dr. Martens"
+                  img={BotsBroun}
+                />
               </Fragment>
             ) : (
               <Fade>
-                <Description title="Ботиночки Коричневые женские Dr. Martens" />
+                <Description
+                  title="Ботиночки Коричневые женские Dr. Martens"
+                  img={BotsBroun}
+                />
               </Fade>
             )}
           </div>
@@ -94,11 +99,17 @@ class Card extends Component {
         <div className="containerCardPage">
           {isMobile ? (
             <Fragment>
-              <Description title="Ботиночки Черные женские Dr. Martens" />
+              <Description
+                title="Ботиночки Черные женские Dr. Martens"
+                img={BotsBlack}
+              />
             </Fragment>
           ) : (
             <Fade>
-              <Description title="Ботиночки Черные женские Dr. Martens" />
+              <Description
+                title="Ботиночки Черные женские Dr. Martens"
+                img={BotsBlack}
+              />
             </Fade>
           )}
         </div>

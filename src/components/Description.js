@@ -1,11 +1,12 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
+// import Fade from "react-reveal/Fade";
 
-import Button from "./Button";
+import CallBack from "./CallBack";
 import BenefitsUl from "./BenefitsUl";
+import LazyImage from "./LazyImage";
 
-import BotsBlack from "../assets/images/BotsBlack.jpg";
-import BotsBroun from "../assets/images/BotsBroun.jpg";
+// import BotsBlack from "../assets/images/BotsBlack.jpg";
+// import BotsBroun from "../assets/images/BotsBroun.jpg";
 
 const Description = props => {
   return (
@@ -31,7 +32,7 @@ const Description = props => {
           ассортимент увеличился расширился круг любителей этой не стандартной
           обувной фирмы.
         </p>
-        <p>
+        {/* <p>
           Модели обуви Dr. Martens одновременно и неряшливы и изящны, сексуальны
           и модны, их можно характеризовать одним словом "уникальные". Они
           сочетаются с военной формой, с брюками, и юбками.
@@ -52,15 +53,17 @@ const Description = props => {
           Подошва имеет свой уникальный дизайн – в середине подошвы находиться
           воздух который в свою очередь смягчает ходьбу и как можно максимально
           защищают вашу ногу от внешних повреждений.
-        </p>
+        </p> */}
       </div>
       <div className="colWrapper">
         <div className="col">
           <BenefitsUl />
         </div>
         <div className="col">
-          <Button />
-          <img src={BotsBlack} alt="Ботиночки" className="heroCard" />
+          {/* <Button /> */}
+          <CallBack />
+          <LazyImage image={props.img} alt="Ботиночки" className="heroCard" />
+          {/* <img src={props.img} alt="Ботиночки" className="heroCard" /> */}
         </div>
       </div>
     </div>

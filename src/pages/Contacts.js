@@ -1,16 +1,19 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import ScrollingHorizontally from "../components/PageOne/HorizontalScroll";
-import "../scss/Delivery.scss";
+import "../scss/Contacts.scss";
 
 const Delivery = props => {
   return (
     <Fragment>
       <Helmet>
-        <title>Доставка</title>
-        <meta name="description" content="Доставка Dr.Martens" />
+        <title>Контакты</title>
+        <meta name="description" content="Контакты Dr.Martens" />
       </Helmet>
-      <ScrollingHorizontally title="Доставка" subtitle={null} />
+      <ScrollingHorizontally
+        title="Контакты"
+        subtitle="Ответим на все Ваши вопросы"
+      />
     </Fragment>
   );
 };

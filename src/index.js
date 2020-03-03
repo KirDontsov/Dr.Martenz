@@ -6,10 +6,14 @@ import { init } from "@rematch/core";
 import { Provider } from "react-redux";
 
 import shutter from "./models/shutter";
+import form from "./models/form";
+import callBack from "./models/callBack";
 
 const store = init({
   models: {
-    shutter
+    shutter,
+    form,
+    callBack
   }
 });
 

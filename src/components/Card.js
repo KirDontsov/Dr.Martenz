@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Tilt from "react-tilt";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import LazyImage from "./LazyImage";
 
 import "../scss/Card.scss";
 
@@ -25,7 +26,6 @@ const Card = props => {
 
   const handleClick = e => {
     setCard(!card);
-    // if trying to navigate to current page stop everything
     if (location?.pathname === to) return;
 
     e.preventDefault();
@@ -48,7 +48,12 @@ const Card = props => {
   return (
     <Link {...rest} to={to} onClick={e => handleClick(e)}>
       <Tilt className={tiltCard.join(" ")} options={{ max: 25 }}>
-        <img src={props.img} alt="Ботиночки" className={cardClass.join(" ")} />
+        <LazyImage
+          image={props.img}
+          alt="Ботиночки"
+          className={cardClass.join(" ")}
+        />
+        {/* <img src={props.img} alt="Ботиночки" className={cardClass.join(" ")} /> */}
       </Tilt>
       <img src={props.img} alt="Ботиночки" className={cardHidden.join(" ")} />
     </Link>

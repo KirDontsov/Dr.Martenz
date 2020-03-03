@@ -37,6 +37,12 @@ nav {
   @media (max-width: 1024px) {
     max-width: 350px;
   }
+  .nav-link {
+    margin-left: 40px;
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+  }
 }
 
 nav a {
@@ -63,10 +69,6 @@ nav a {
   height: 100px;
   background: transparent;
   position: relative;
-}
-
-a.nav-link {
-  margin-left: 30px;
 }
 
 a.nav-link.active {

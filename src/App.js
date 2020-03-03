@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+import Burger from "./components/Burger";
 import NavBar from "./components/NavBar";
 import Shutter from "./components/Shutter";
 import { routes } from "./routes";
@@ -56,6 +57,7 @@ class App extends Component {
               <title>РТИ-Торг</title>
               <meta name="description" content="РТИ-Торг" />
             </Helmet>
+            <Burger routes={routes.filter(route => route.isMobile)} />
             {renderSwitch()}
           </Fragment>
         </Router>

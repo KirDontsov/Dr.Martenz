@@ -21,7 +21,7 @@
     height: 100vh;
 
     .heroCard {
-      width: 100%;
+      width: 60vw;
       height: 100vh;
       object-fit: cover;
       object-position: 50% 50%;
@@ -95,8 +95,8 @@
     }
     p {
       margin-bottom: 30px;
-      font-size: 18px;
-      line-height: 26px;
+      font-size: 20px;
+      line-height: 160%;
     }
   }
   .colWrapper {
@@ -155,7 +155,9 @@
         }
 
         .addToCart {
-          display: block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           background: $black;
           width: 31.25%;
           height: 150px;
@@ -165,6 +167,9 @@
           text-transform: uppercase;
           border: 1px solid $black;
           transition: 0.3s;
+          position: sticky;
+          top: 100px;
+          z-index: 10;
           &:hover {
             color: $black;
             background: transparent;
@@ -179,11 +184,12 @@
           }
         }
 
-        img {
+        .heroCard {
           margin-top: 500px;
-          width: 100%;
+          width: 120%;
           object-fit: cover;
           object-position: right;
+          z-index: -1;
           @media (max-width: 768px) {
             margin-top: 0;
           }
@@ -216,7 +222,7 @@
   }
   to {
     transform: rotate(0deg);
-    width: 100vw;
+    width: 60vw;
     height: 100vh;
   }
 }
