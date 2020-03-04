@@ -1,9 +1,12 @@
 import React, { Fragment, Component } from "react";
 import { Helmet } from "react-helmet";
 import Fade from "react-reveal/Fade";
+import LazyImage from "./../components/LazyImage";
 
 import BotsBlack from "../assets/images/BotsBlack.jpg";
 import BotsBroun from "../assets/images/BotsBroun.jpg";
+import SingleBots from "../assets/images/SingleBots.jpeg";
+import SingleBots_2 from "../assets/images/SingleBots_2.jpeg";
 import Description from "../components/Description";
 
 import "../scss/CardPage.scss";
@@ -63,12 +66,22 @@ class Card extends Component {
                   title="Ботиночки Коричневые женские Dr. Martens"
                   img={BotsBroun}
                 />
+                <LazyImage
+                  image={SingleBots}
+                  alt="Ботиночки"
+                  className="footerCard"
+                />
               </Fragment>
             ) : (
               <Fade>
                 <Description
                   title="Ботиночки Коричневые женские Dr. Martens"
                   img={BotsBroun}
+                />
+                <LazyImage
+                  image={SingleBots}
+                  alt="Ботиночки"
+                  className="footerCard"
                 />
               </Fade>
             )}
@@ -103,12 +116,22 @@ class Card extends Component {
                 title="Ботиночки Черные женские Dr. Martens"
                 img={BotsBlack}
               />
+              <LazyImage
+                image={SingleBots_2}
+                alt="Ботиночки"
+                className="footerCard"
+              />
             </Fragment>
           ) : (
             <Fade>
               <Description
                 title="Ботиночки Черные женские Dr. Martens"
                 img={BotsBlack}
+              />
+              <LazyImage
+                image={SingleBots_2}
+                alt="Ботиночки"
+                className="footerCard"
               />
             </Fade>
           )}

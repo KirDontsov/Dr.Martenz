@@ -7,6 +7,19 @@
   @media (max-width: 1440px) {
     padding: 0;
   }
+  .lazy-load-image-background.blur.lazy-load-image-loaded {
+    width: 120%;
+    display: block;
+    padding: 0;
+    .footerCard {
+      width: 120vw;
+      height: 150vh;
+      object-fit: cover;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 }
 
 .containerCard {

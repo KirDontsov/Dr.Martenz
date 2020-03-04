@@ -60,10 +60,8 @@ const Description = props => {
           <BenefitsUl />
         </div>
         <div className="col">
-          {/* <Button /> */}
           <CallBack />
           <LazyImage image={props.img} alt="Ботиночки" className="heroCard" />
-          {/* <img src={props.img} alt="Ботиночки" className="heroCard" /> */}
         </div>
       </div>
     </div>
