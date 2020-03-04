@@ -197,6 +197,12 @@
   flex-direction: column;
   padding: 30% 10%;
   margin: 0 auto;
+  &.padding {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   a.nav-link {
     font-size: 20px;
     color: #fff;
@@ -366,7 +372,7 @@ a.logo__mob {
     .container__form {
       position: absolute;
       padding: 0 30px;
-      top: 50%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;

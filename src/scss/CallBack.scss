@@ -34,8 +34,16 @@
   @media (max-width: 1440px) {
     width: 33.25%;
     @media (max-width: 768px) {
+      position: fixed;
+      top: 40px;
+      right: 42px;
+
+      padding: 20px;
       float: none;
-      width: 100%;
+      width: 50px;
+      height: 300px;
+      writing-mode: vertical-rl;
+      font-size: 15px;
     }
   }
 
@@ -45,10 +53,16 @@
     color: transparent !important;
     overflow: hidden;
     // border-radius: 50%;
+    @media (max-width: 768px) {
+      border: 1px solid $yellow;
+    }
 
     &.active:hover > .nav:before,
     &.active:hover > .nav:after {
       background: $black;
+      @media (max-width: 768px) {
+        background: $yellow;
+      }
     }
   }
 

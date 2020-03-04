@@ -4,6 +4,7 @@ import { noop } from "lodash";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 import Form from "../components/Form";
+import { connect } from "react-redux";
 
 import "../scss/Burger.scss";
 
@@ -18,29 +19,29 @@ const Button = props => (
 );
 
 class Burger extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      active: false,
-      addClass: false
-    };
-
-    this._onClick = this._onClick.bind(this);
-  }
+  //   this.state = {
+  //     active: false,
+  //     addClass: false
+  //   };
+  // }
 
   _onClick() {
-    this.setState({
-      active: !this.state.active,
-      addClass: !this.state.addClass
-    });
+    this.props.changeActiveBurger(!this.props.activeBurger);
+    this.props.changeClassBurger(!this.props.addClassBurger);
+    // this.setState({
+    //   active: !this.state.active,
+    //   addClass: !this.state.addClass
+    // });
   }
 
   render() {
     let buttonClass = ["button--large"];
     let navClass = ["nav__toggle"];
 
-    if (this.state.addClass) {
+    if (this.props.addClassBurger) {
       buttonClass.push("active");
       navClass.push("active");
     }
@@ -49,7 +50,7 @@ class Burger extends Component {
         <Motion
           defaultStyle={{ s: 0.675 }}
           style={{
-            s: spring(this.state.active ? 1 : 0.675, {
+            s: spring(this.props.activeBurger ? 1 : 0.675, {
               stiffness: 330,
               damping: 14
             })
@@ -67,7 +68,7 @@ class Burger extends Component {
                         activeClassName="active"
                         key={route.path}
                         to={route.path}
-                        onClick={this._onClick.bind(this)}
+                        onClick={() => this._onClick()}
                       >
                         {route.name}
                       </NavLink>
@@ -78,19 +79,23 @@ class Burger extends Component {
                   </div>
                 </div>
               </div>
-              <Button
-                className={buttonClass.join(" ")}
-                onClick={this._onClick.bind(this)}
-                style={{
-                  transform: "scale(" + interpolatingStyles.s + ")"
-                }}
-              >
-                <span
-                  className={
-                    this.state.active ? "icon__burger active" : "icon__burger"
-                  }
-                />
-              </Button>
+              {!this.props.active ? (
+                <Button
+                  className={buttonClass.join(" ")}
+                  onClick={this._onClick.bind(this)}
+                  style={{
+                    transform: "scale(" + interpolatingStyles.s + ")"
+                  }}
+                >
+                  <span
+                    className={
+                      this.props.activeBurger
+                        ? "icon__burger active"
+                        : "icon__burger"
+                    }
+                  />
+                </Button>
+              ) : null}
 
               {/* <Link className="logo__mob" to="/">
                 РТИ-Торг
@@ -103,4 +108,19 @@ class Burger extends Component {
   }
 }
 
-export default Burger;
+const mapState = state => ({
+  active: state.callBack.active,
+  activeBurger: state.callBack.activeBurger,
+  addClassBurger: state.callBack.addClassBurger
+});
+
+const mapDispatch = ({
+  callBack: { changeClass, changeActive, changeActiveBurger, changeClassBurger }
+}) => ({
+  changeClass,
+  changeActive,
+  changeClassBurger,
+  changeActiveBurger
+});
+
+export default connect(mapState, mapDispatch)(Burger);

@@ -20,7 +20,7 @@ class CallBack extends Component {
   render() {
     let buttonClass = ["callBack"];
     let navClass = ["nav__toggle"];
-    let header = ["header__form"];
+    let header = ["burgerForm"];
 
     if (this.props.addClass) {
       buttonClass.push("active");
@@ -29,23 +29,27 @@ class CallBack extends Component {
     return (
       <Fragment>
         <div className={navClass.join(" ")}>
-          <div className="container__form">
-            <Form className={header} />
+          <div className="container__mob padding">
+            <Form type={"BurgerForm"} />
           </div>
         </div>
-        <Button
-          className={buttonClass.join(" ")}
-          onClick={() => {
-            this.openModal();
-          }}
-        >
-          <span
-            className={
-              this.props.active ? "icon__burger nav active" : "icon__burger nav"
-            }
-          />
-          Оставить заявку
-        </Button>
+        {!this.props.activeBurger ? (
+          <Button
+            className={buttonClass.join(" ")}
+            onClick={() => {
+              this.openModal();
+            }}
+          >
+            <span
+              className={
+                this.props.active
+                  ? "icon__burger nav active"
+                  : "icon__burger nav"
+              }
+            />
+            Оставить заявку
+          </Button>
+        ) : null}
       </Fragment>
     );
   }
@@ -53,7 +57,8 @@ class CallBack extends Component {
 
 const mapState = state => ({
   addClass: state.callBack.addClass,
-  active: state.callBack.active
+  active: state.callBack.active,
+  activeBurger: state.callBack.activeBurger
 });
 
 const mapDispatch = ({ callBack: { changeClass, changeActive } }) => ({

@@ -26,6 +26,10 @@
       object-fit: cover;
       object-position: 50% 50%;
       animation: fadeIn 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+      @media (max-width: 768px) {
+        width: 100vw;
+        height: 100vh;
+      }
     }
   }
   .headingContainer {
@@ -151,36 +155,6 @@
           @media (max-width: 768px) {
             width: 100%;
             min-height: auto;
-          }
-        }
-
-        .addToCart {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: $black;
-          width: 31.25%;
-          height: 150px;
-          float: right;
-          color: #fff;
-          font-size: 20px;
-          text-transform: uppercase;
-          border: 1px solid $black;
-          transition: 0.3s;
-          position: sticky;
-          top: 100px;
-          z-index: 10;
-          &:hover {
-            color: $black;
-            background: transparent;
-            cursor: pointer;
-          }
-          @media (max-width: 1440px) {
-            width: 33.25%;
-            @media (max-width: 768px) {
-              float: none;
-              width: 100%;
-            }
           }
         }
 
